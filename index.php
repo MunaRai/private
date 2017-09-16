@@ -20,7 +20,7 @@
                 echo'<p> You will be redirected to your original page request.  </p>';
                 echo'<p> If your browser doesn\'t redirect you properly' . 'automatically, <a href="' . $redirect . '">click here </a> . </p>';
                 die();
-            }else{
+            }else{  
                 /* set these explicitly just to make sure */
                 $_SESSION['username'] = '';
                 $_SESSION['logged'] = 0;
