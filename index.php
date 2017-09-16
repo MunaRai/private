@@ -26,7 +26,7 @@
                 $_SESSION['logged'] = 0;
                 $error = 'Invalid username or password!';
             }
-        }else{
+        }else{    
             echo "Login successfully";
             header ('Refresh: 5; URL = ' . $redirect);
             echo'<p> You will be redirected to your original page request.  </p>';
