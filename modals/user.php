@@ -18,9 +18,17 @@
         }
 
         function login( $data ){
+            $conn = connect_db();
             var_dump($data);
-            $sql = "SELECT email, password FROM ".$this->table." where email=".$data['email']." and password=".$data['password']." ";
-            echo $sql;
+            $sql = 'SELECT email FROM user WHERE email="'.$data['email'].'" AND password="'.$data['password'].'"';
+            
+            $result = mysql_query($sql);
+            var_dump(mysql_num_rows($result));
+            if( mysql_num_rows($result) > 0 ){
+                echo "new success";
+            }else{
+                echo "new fail";
+            }
         }
 
     }
