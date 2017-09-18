@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <?php global $title; ?>
+        <title><?php echo isset($title) ? $title : "private"; ?></title>
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     </head>

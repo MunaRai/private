@@ -2,41 +2,8 @@
 
     /* Including common header file */
     include('header.php');
-
-    session_start();
-    /* filter incoming values */
-    $username = (isset($_POST['username'])) ? trim($_POST['username']) : '';
-    $password = (isset($_POST['password'])) ? $_POST['password'] : '';
-    $redirect = (isset($_REQUEST['redirect'])) ? $_REQUEST['redirect'] : 'main.php';
-
-    if( isset($_POST['login']) ){
-
-        if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 1){
-            if( !empty($_POST['username']) && $_POST['username'] == 'admin' && !empty($_POST['password']) && $_POST['password'] == 'admin' ){
-                $_SESSION['username'] = $username;
-                $_SESSION['logged'] = 1;
-                echo "Login successfully";
-                header ('Refresh: 5; URL = ' . $redirect);
-                echo'<p> You will be redirected to your original page request.  </p>';
-                echo'<p> If your browser doesn\'t redirect you properly' . 'automatically, <a href="' . $redirect . '">click here </a> . </p>';
-                die();
-            }else{  
-                /* set these explicitly just to make sure */
-                $_SESSION['username'] = '';
-                $_SESSION['logged'] = 0;
-                $error = 'Invalid username or password!';
-            }
-        }else{    
-            echo "Login successfully";
-            header ('Refresh: 5; URL = ' . $redirect);
-            echo'<p> You will be redirected to your original page request.  </p>';
-            echo'<p> If your browser doesn\'t redirect you properly' . 'automatically, <a href="' . $redirect . '">click here </a> . </p>';
-            die();
-        }
-    }
+    require'controller/login.php';
 ?>
-
-
 
 <div class="user-panel">
 
@@ -51,7 +18,7 @@
         <!-- Username -->
         <div class="form-group">
             <label for="user-label"><strong>Email address</strong></label>
-            <input type="text" name="username" id="user-label" class="form-control" placeholder="Email" value="<?php echo $username; ?>"/>
+            <input type="text" name="email" id="user-label" class="form-control" placeholder="Email" value="<?php echo $username; ?>"/>
         </div>
         
         <!-- Password -->
