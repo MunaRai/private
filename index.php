@@ -25,14 +25,7 @@
         <div class="form-group">
             <label for="password-label"><strong>Password</strong></label>
             <input type="password" name="password" class="form-control" id="password-label" placeholder="Password" value="<?php echo $password; ?>" />
-        </div>
-        
-        <!-- Login button -->
-        <button type="submit" class="btn btn-success" name="login" />Login</button>
-
-    </form><!-- /form -->
-
-    <!-- Creating a new account -->
+        </div>+
     <p><center>Create a new account <a href="register.php" > <strong>Sign Up </strong></a></center></p>
 
 </div><!-- /.user-panel -->
