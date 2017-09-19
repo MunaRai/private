@@ -2,14 +2,23 @@
 
     include ('inc/db.inc.php');
 
-    class user {
+    class user{
 
         protected $table='user';
-
+        protected $conn;
+        
+        function __construct() {
+           $this-> conn = connect_db();
+        //   echo "construct";
+        }
+        
+        function __destruct() {
+        //   echo "destruct";
+        }
+        
         function insert( $data ){
-            $conn = connect_db();
             $sql = "INSERT INTO ".$this->table." (user_name, password, email, first_name, last_name, city, state, hobbies ) VALUES ('".$data['user_name']."', '".$data['password']."', '".$data['email']."', '".$data['first_name']."', '".$data['last_name']."', '".$data['city']."', '".$data['state']."', '".$data['hobbies']."')";
-            if( mysqli_query($conn, $sql) ){
+            if( mysqli_query($this->conn, $sql) ){
                 $response = array("type"=>"success", "message"=>"successfully Created Account" );
             }else{
                 $response = array("type"=>"error", "message"=>"Your email address is already exist" );
@@ -18,16 +27,26 @@
         }
 
         function login( $data ){
-            $conn = connect_db();
-            var_dump($data);
-            $sql = 'SELECT email FROM user WHERE email="'.$data['email'].'" AND password="'.$data['password'].'"';
-            
-            $result = mysql_query($sql);
-            var_dump(mysql_num_rows($result));
-            if( mysql_num_rows($result) > 0 ){
-                echo "new success";
+            // https://www.w3schools.com/php/func_mysqli_num_rows.asp
+            $query = sprintf( "SELECT `email` FROM user WHERE `email`='%s' AND `password`='%s'", $data['email'], $data['password'] );
+            if( $result = mysqli_query( $this->conn, $query ) ) {
+                if( mysqli_num_rows( $result ) > 0 ){
+                  return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function getdata( $email){
+            $query = sprintf( "SELECT * FROM user WHERE `email`='%s'", $email );
+            $result = $this->conn->query($query);
+            if( $result->num_rows > 0){
+                return $result->fetch_assoc();
             }else{
-                echo "new fail";
+                return false;
             }
         }
 

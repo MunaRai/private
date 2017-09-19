@@ -1,0 +1,7 @@
+mysql-ctl install
+Then install phpMyAdmin:
+
+phpmyadmin-ctl install
+After the installation is complete you'll just want to make sure mysql is running once more:
+
+mysql-ctl start
