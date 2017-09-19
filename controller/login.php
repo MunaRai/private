@@ -1,5 +1,4 @@
 <?php
-
     include 'modals/user.php';
     global $title;
     $title = 'Login';
@@ -12,5 +11,15 @@
     $redirect = (isset($_REQUEST['redirect'])) ? $_REQUEST['redirect'] : 'main.php';
 
     if( isset($_POST['login']) ){
-        $user->login( $_POST  ); 
-    }
+        
+        $result = $user->login( $_POST  );
+        if( $result ) {
+            echo "i am here";
+            // redirect to dashboard
+            header('Location: '. '/main.php');
+            die;
+        }  else {
+            header('Location: '. '/index.php');
+            die;
+        }
+    }    

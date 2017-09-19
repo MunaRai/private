@@ -1,5 +1,4 @@
 <?php
-
     /* Including common header file */
     include('header.php');
     require'controller/login.php';
@@ -28,7 +27,7 @@
         </div>
         
         <!-- Login button -->
-        <button type="submit" class="btn btn-success" name="login" />Login</button>
+        <button type="submit" class="btn btn-success" name="login" value="1" />Login</button>
 
     </form><!-- /form -->
 
