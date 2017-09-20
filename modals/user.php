@@ -51,15 +51,8 @@
         }
 
         function update( $data ){
-           $query = "UPDATE ".$this->table." SET user_name = ".$data['user_name'].", email = ".$data['email'].", first_name = ".$data['first_name'].", last_name = ".$data['last_name'].", city =".$data['city'].", state=".$data['state'].", hobbies=".$data['hobbies']." WHERE email = ".$data['email'].";
-           echo $query;
-           
-           // if( mysqli_query($this->conn, $sql) ){
-           //     $response = array("type"=>"success", "message"=>"successfully updated Account" );
-           // }else{
-           //     $response = array("type"=>"error", "message"=>"updation unsuccessful" );
-           // }
-           // return $response;
+          // $query = "UPDATE ".$this->table." SET user_name = ".$data['user_name'].", email = ".$data['email'].", first_name = ".$data['first_name'].", last_name = ".$data['last_name'].", city =".$data['city'].", state=".$data['state'].", hobbies=".$data['hobbies']." WHERE email = ".$data['email'].";
+           //echo $query;
         }
 
     }
