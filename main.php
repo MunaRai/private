@@ -11,6 +11,7 @@
         <br/>
         <a class="btn btn-success" href="view_profile.php">View your profile <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;
         <a href="logout.php" class="btn btn-primary" >Log out <span class="glyphicon glyphicon-off" aria-hidden="true"></span> </a> 
+        <a class="btn btn-success" href="edit_profile.php"> Edit profile <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>&nbsp;
     </div>   
 <?php
     include('footer.php');
